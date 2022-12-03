@@ -75,7 +75,7 @@ function ensureWindow(player_index)
                 {type = "empty-widget", style="draggable_space",  style_mods={left_padding=0, left_margin=0}, save_as="drag_handle", style_mods={width=8, height=45} },
                 {type="flow", direction="vertical", children = {
                     {type="flow", save_as="main_container", style_mods= {vertical_align="center", left_margin=0}, children={
-                        {type="sprite", elem_type="item", sprite=nil, save_as="item_icon", style_mods= { height = 14, width = 14 } },
+                        {type="sprite", elem_type="item", sprite=nil, save_as="item_icon", resize_to_sprite=false, style_mods= { height = 16, width = 16 } },
                         {type="label", save_as="item_count" },
                         {type="progressbar", save_as="fuel_remaining", style_mods= { color={r=1, g=0.667, b=0.2}, vertical_align="center", width="120" } }}},
                     {type="label", save_as="estimated_time", caption=nil },
