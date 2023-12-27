@@ -62,6 +62,12 @@ function syncDataToUI(player_index)
     end
 end
 
+local function is_position_off_screen(position, resolution)
+    return position.x < 0 or position.y < 0 or
+           position.x > (resolution.width - 20) or
+           position.y > (resolution.height - 20)
+end
+
 function ensureWindow(player_index)
     local player = game.get_player(player_index)
 
@@ -86,7 +92,7 @@ function ensureWindow(player_index)
     global.ui_state[player_index].dialog = dialog    
     
     local ui_state = global.ui_state[player_index]
-    if ui_state.location then
+    if ui_state.location and not is_position_off_screen(ui_state.location, player.display_resolution) then
         dialog.main_window.location = global.ui_state[player_index].location
     else
         dialog.main_window.location = { 0, player.display_resolution.height - toolbarHeight(player.display_scale) }
