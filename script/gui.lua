@@ -64,7 +64,7 @@ function syncDataToUI(player_index)
         local consumption_rate = vehicle.consumption_modifier * vehicleProto.consumption * 60
         ui_state.dialog.estimated_time.caption = {"vehicle-fuel-ui.estimated-remaining", renderTime(total / consumption_rate) }
     else
-        local consumption_rate = vehicleProto.max_energy_usage * 60
+        local consumption_rate = vehicleProto.get_max_energy_usage(vehicle.quality) * 60
         ui_state.dialog.estimated_time.caption = {"vehicle-fuel-ui.estimated-remaining", renderTime(total / consumption_rate) }
     end
 end
